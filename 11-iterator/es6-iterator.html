@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iterator</title>
+  </head>
+  <body>
+    <div id="div1">
+      <a href="#">a1</a>
+      <a href="#">a2</a>
+      <a href="#">a3</a>
+      <a href="#">a4</a>
+    </div>
+    <script>
+      function each(data) {
+        // // 生成遍历器
+        // let iterator = data[Symbol.iterator]()
+        // let item = iterator.next()
+        // while (!item.done) {
+        //   console.log(item.value)
+        //   item = iterator.next()
+        // }
+
+        // 带有遍历器特性的对象(即有序对象): data[Symbol.iterator] 存在
+        for (let item of data) {
+          console.log("item: ", item)
+        }
+      }
+
+      const arr = [1, 2, 3]
+      const nodeList = document.getElementsByTagName("a")
+      const m = new Map()
+      m.set("a", 1)
+      m.set("b", 2)
+
+      each(arr)
+      each(nodeList)
+      each(m)
+    </script>
+  </body>
+</html>

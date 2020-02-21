@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iterator</title>
+  </head>
+  <body>
+    <div id="div1">
+      <a href="#">a1</a>
+      <a href="#">a2</a>
+      <a href="#">a3</a>
+      <a href="#">a4</a>
+      <a href="#">a5</a>
+    </div>
+    <script src="../assets/jquery-3.4.1.min.js"></script>
+    <script>
+      const arr = [1, 2, 3]
+      const nodeList = document.getElementsByTagName("a")
+      const $a = $("a")
+
+      // // 遍历数组
+      // arr.forEach(item => {
+      //   console.log("item: ", item)
+      // })
+
+      // // 遍历 nodelist
+      // let len = nodeList.length
+      // for (; len; len--) {
+      //   console.log(nodeList[len - 1])
+      // }
+
+      // // 遍历 $a
+      // $a.each((key, elem) => {
+      //   console.log(key, elem)
+      // })
+
+      function each(data) {
+        let $data = $(data) // 生成迭代器
+        $data.each((key, val) => {
+          console.log(key, val)
+        })
+      }
+      each(arr)
+      each(nodeList)
+      each($a)
+    </script>
+  </body>
+</html>

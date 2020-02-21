@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jq-observer</title>
+  </head>
+  <body>
+    <script src="../assets/jquery-3.4.1.min.js"></script>
+    <script>
+      // 自定义回调
+      const callbacks = $.Callbacks()
+      function addCallback(name) {
+        callbacks.add(info => {
+          console.log(`${name}: `, info)
+        })
+      }
+      addCallback("fn1")
+      addCallback("fn2")
+      addCallback("fn3")
+      addCallback("fn4")
+      callbacks.fire("gogogo")
+      callbacks.fire("fire")
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>proxy</title>
+  </head>
+  <body>
+    <div id="div1">
+      <a href="#">a1</a>
+      <a href="#">a2</a>
+      <a href="#">a3</a>
+      <a href="#">a4</a>
+      <a href="#">a5</a>
+    </div>
+    <script src="../assets/jquery-3.4.1.min.js"></script>
+  </body>
+  <script>
+    // const div1 = document.querySelector("#div1")
+    // div1 &&
+    //   div1.addEventListener("click", e => {
+    //     const target = e.target
+    //     if (target.nodeName === "A") {
+    //       alert(target.innerHTML)
+    //     }
+    //   })
+    $("#div1").click(function() {
+      let _fn = function() {
+        $(this).css("background-color", "green")
+      }
+      let fn = $.proxy(_fn, this)
+      setTimeout(fn)
+    })
+  </script>
+</html>
